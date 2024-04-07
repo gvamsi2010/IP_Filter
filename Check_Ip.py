@@ -10,7 +10,7 @@ def get_country_from_ip(ip_address):
         print(f"Failed to fetch country for IP {ip_address}. Error: {response.status_code}")
 
 # Test the function
-ip_address = "9.9.9.9"
+ip_address = "1.39.255.255"
 country = get_country_from_ip(ip_address)
 if country:
     print(f"The country for IP address {ip_address} is {country}.")
