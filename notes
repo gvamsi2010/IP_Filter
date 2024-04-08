@@ -1,0 +1,4 @@
+
+curl --location --request GET "https://stat.ripe.net/data/country-resource-list/data.json?resource=at&time=2024-04-07"
+
+

@@ -17,13 +17,20 @@ def get_ipv4_prefixes_for_country(country_code, date):
         print(f"Error: {response.status_code} - {response.reason}")
         return None
 
+def save_to_text_file(ipv4_prefixes, file_path):
+    with open(file_path, 'w') as file:
+        if ipv4_prefixes:
+            file.write("Sorted IPv4 prefixes:\n")
+            for prefix in ipv4_prefixes:
+                file.write(prefix + '\n')
+            print(f"IPv4 prefixes saved to {file_path}")
+        else:
+            file.write("No IPv4 prefixes found for the specified country and date.")
+            print("No IPv4 prefixes found for the specified country and date.")
+
 # Example usage:
-country_code = 'IN'  # Country code for Austria
+country_code = 'at'  # Country code for Austria
 date = '2020-12-01'
 ipv4_prefixes = get_ipv4_prefixes_for_country(country_code, date)
 if ipv4_prefixes:
-    print("Sorted IPv4 prefixes:")
-    for prefix in ipv4_prefixes:
-        print(prefix)
-else:
-    print("No IPv4 prefixes found for the specified country and date.")
+    save_to_text_file(ipv4_prefixes, 'ipv4_prefixes.txt')
